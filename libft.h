@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:43:40 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/15 18:57:53 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/06/16 13:01:16 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdint.h>
 # include <limits.h>
+# include <stdarg.h>
 
 
 # ifndef BUFFER_SIZE

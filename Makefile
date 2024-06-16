@@ -6,7 +6,7 @@
 #    By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/26 18:53:05 by tviejo            #+#    #+#              #
-#    Updated: 2024/06/15 18:54:18 by tviejo           ###   ########.fr        #
+#    Updated: 2024/06/16 13:21:07 by tviejo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,3 +52,4 @@ fclean:			clean
 re:				fclean all
 
 .PHONY:			bonus all clean fclean re
+.SILENT:
