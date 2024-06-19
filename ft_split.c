@@ -6,13 +6,13 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:14:25 by tviejo            #+#    #+#             */
-/*   Updated: 2024/05/20 17:56:09 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:43:24 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *str, char c)
+int	ft_count_words(const char *str, char c)
 {
 	int	nb_words;
 	int	i;
