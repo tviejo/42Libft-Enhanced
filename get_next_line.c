@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:50:49 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/15 18:41:36 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:22:41 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static char	*ft_remove_buffer(char *output)
 	}
 	return (output);
 }
-
 
 char	*ft_read(char *buffer, int fd)
 {

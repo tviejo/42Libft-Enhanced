@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/20 16:22:07 by tviejo            #+#    #+#             */
+/*   Updated: 2024/06/20 16:23:03 by tviejo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 long	ft_atol(const char *str)
 {
 	unsigned long int	cpt;
-	int						sign;
-	long int	value;
+	int					sign;
+	long int			value;
 
 	cpt = 0;
 	value = 0;

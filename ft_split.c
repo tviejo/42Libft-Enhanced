@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:14:25 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/19 12:43:24 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/06/20 15:46:42 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	*ft_copy_line(const char **str, char c)
 	return (line);
 }
 
-static void	ft_free(char **str)
+void	ft_free_split(char **str)
 {
 	int	i;
 
@@ -93,7 +93,7 @@ char	**ft_split(const char *str, char c)
 			output[i] = ft_copy_line(&str, c);
 			if (output[i] == NULL)
 			{
-				ft_free(output);
+				ft_free_split(output);
 				output = NULL;
 				break ;
 			}
