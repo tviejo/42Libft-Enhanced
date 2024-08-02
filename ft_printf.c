@@ -38,10 +38,30 @@ static int	ft_convert(char c, va_list args, int fd)
 
 int	ft_printf(const char *str, ...)
 {
+	va_list	args;
+	int		i;
+	int		converted;
 	int		nb_byte;
 
-	nb_byte = ft_dprintf(1, str);
-	return (nb_byte);
+	if (str == NULL)
+		return (-1);
+	va_start(args, str);
+	i = -1;
+	nb_byte = 0;
+	while (str[++i] != '\0')
+	{
+		if (str[i] == '%')
+		{
+			i++;
+			converted = ft_convert(str[i], args, 1);
+			nb_byte += converted;
+			if (converted == -1)
+				return (va_end(args), -1);
+		}
+		else
+			nb_byte += ft_putchar_fd_2(str[i], 1);
+	}
+	return (va_end(args), nb_byte);
 }
 
 int	ft_dprintf(int fd, const char *str, ...)
