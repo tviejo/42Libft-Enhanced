@@ -6,13 +6,13 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:38:21 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/15 18:51:09 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:30:11 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_converthexa(unsigned long nb, char c)
+int	ft_converthexa(unsigned long nb, char c, int fd)
 {
 	int		i;
 	int		output;
@@ -20,7 +20,7 @@ int	ft_converthexa(unsigned long nb, char c)
 
 	i = 0;
 	if (nb == 0)
-		return (ft_putchar('0'));
+		return (ft_putchar_fd_2('0', fd));
 	while (nb > 0)
 	{
 		if (nb % 16 <= 9)
@@ -31,18 +31,18 @@ int	ft_converthexa(unsigned long nb, char c)
 		i++;
 	}
 	toprint[i] = '\0';
-	output = ft_putrstr(toprint);
+	output = ft_putrstr(toprint, fd);
 	return (output);
 }
 
-int	ft_puthexalow(unsigned long nb)
+int	ft_puthexalow(unsigned long nb, int fd)
 {
-	return (ft_converthexa(nb, 'a'));
+	return (ft_converthexa(nb, 'a', fd));
 }
 
-int	ft_puthexahigh(unsigned long nb)
+int	ft_puthexahigh(unsigned long nb, int fd)
 {
-	return (ft_converthexa(nb, 'A'));
+	return (ft_converthexa(nb, 'A', fd));
 }
 /*
 int	main(void)

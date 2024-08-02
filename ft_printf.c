@@ -6,37 +6,45 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:36:32 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/15 18:50:56 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:29:18 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_convert(char c, va_list args)
+static int	ft_convert(char c, va_list args, int fd)
 {
 	int	i;
 
 	i = -1;
 	if (c == 'c')
-		i = ft_putchar(va_arg(args, int));
+		i = ft_putchar_fd_2(va_arg(args, int), fd);
 	else if (c == 's')
-		i = ft_putstr(va_arg(args, char *));
+		i = ft_putstr_fd_2(va_arg(args, char *), fd);
 	else if (c == 'p')
-		i = ft_putvoid(va_arg(args, void *));
+		i = ft_putvoid(va_arg(args, void *), fd);
 	else if (c == 'd' || c == 'i')
-		i = ft_putrecurnbr(va_arg(args, int));
+		i = ft_putrecurnbr(va_arg(args, int), fd);
 	else if (c == 'u')
-		i = ft_puturecurnbr(va_arg(args, unsigned int));
+		i = ft_puturecurnbr(va_arg(args, unsigned int), fd);
 	else if (c == 'x')
-		i = ft_puthexalow(va_arg(args, unsigned int));
+		i = ft_puthexalow(va_arg(args, unsigned int), fd);
 	else if (c == 'X')
-		i = ft_puthexahigh(va_arg(args, unsigned int));
+		i = ft_puthexahigh(va_arg(args, unsigned int), fd);
 	else if (c == '%')
-		i = ft_putchar('%');
+		i = ft_putchar_fd_2('%', fd);
 	return (i);
 }
 
 int	ft_printf(const char *str, ...)
+{
+	int		nb_byte;
+
+	nb_byte = ft_dprintf(1, str);
+	return (nb_byte);
+}
+
+int	ft_dprintf(int fd, const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -53,13 +61,13 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			converted = ft_convert(str[i], args);
+			converted = ft_convert(str[i], args, fd);
 			nb_byte += converted;
 			if (converted == -1)
 				return (va_end(args), -1);
 		}
 		else
-			nb_byte += ft_putchar(str[i]);
+			nb_byte += ft_putchar_fd_2(str[i], fd);
 	}
 	return (va_end(args), nb_byte);
 }

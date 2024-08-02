@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:43:40 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/22 17:48:39 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:27:49 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,17 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_putchar(int c);
-int					ft_putstr(char *str);
-int					ft_putrstr(char *str);
-int					ft_putvoid(void *str);
-int					ft_converthexa(unsigned long nb, char c);
-int					ft_putrecurnbr(int nb);
-int					ft_puturecurnbr(unsigned int nb);
-int					ft_puthexalow(unsigned long nb);
-int					ft_puthexahigh(unsigned long nb);
+int					ft_putchar_fd_2(int c, int fd);
+int					ft_putstr_fd_2(char *str, int fd);
+int					ft_putrstr(char *str, int fd);
+int					ft_putvoid(void *str, int fd);
+int					ft_converthexa(unsigned long nb, char c, int fd);
+int					ft_putrecurnbr(int nb, int fd);
+int					ft_puturecurnbr(unsigned int nb, int fd);
+int					ft_puthexalow(unsigned long nb, int fd);
+int					ft_puthexahigh(unsigned long nb, int fd);
 int					ft_printf(const char *str, ...);
+int					ft_dprintf(int fd, const char *str, ...);
 char				*get_next_line(int fd);
 int					ft_is_new_line(char *buffer);
 void				ft_remove_returned(char *buffer);

@@ -6,33 +6,33 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/06/15 18:58:32 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:26:52 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar(int c)
+int	ft_putchar_fd_2(int c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }
 
-int	ft_putstr(char *str)
+int	ft_putstr_fd_2(char *str, int fd)
 {
 	if (str == NULL)
-		return (ft_putstr("(null)"));
+		return (ft_putstr_fd_2("(null)", fd));
 	write(1, &str[0], ft_strlen(str));
 	return (ft_strlen(str));
 }
 
-int	ft_putrstr(char *str)
+int	ft_putrstr_fd_2(char *str, int fd)
 {
 	int	i;
 	int	output;
 
 	if (str == NULL)
-		return (ft_putstr("(null)"));
+		return (ft_putstr_fd_2("(null)", fd));
 	i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -40,19 +40,19 @@ int	ft_putrstr(char *str)
 	i--;
 	while (i >= 0)
 	{
-		ft_putchar(str[i]);
+		ft_putchar_fd_2(str[i], fd);
 		i--;
 	}
 	return (output);
 }
 
-int	ft_putvoid(void *str)
+int	ft_putvoid(void *str, int fd)
 {
 	unsigned long int	address;
 
 	if (str == NULL)
-		return (ft_putstr("(nil)"));
-	ft_putstr("0x");
+		return (ft_putstr_fd_2("(nil)", fd));
+	ft_putstr_fd_2("0x", fd);
 	address = (unsigned long int)str;
-	return (2 + ft_converthexa(address, 'a'));
+	return (2 + ft_converthexa(address, 'a', fd));
 }
