@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/08/02 13:26:52 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/02 13:38:53 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_putstr_fd_2(char *str, int fd)
 	return (ft_strlen(str));
 }
 
-int	ft_putrstr_fd_2(char *str, int fd)
+int	ft_putrstr(char *str, int fd)
 {
 	int	i;
 	int	output;
