@@ -6,7 +6,7 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:43:40 by tviejo            #+#    #+#             */
-/*   Updated: 2024/08/02 13:27:49 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/09 20:35:35 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 int					ft_count_words(const char *str, char c);
 long				ft_atol(const char *str);
 void				ft_free_split(char **str);
+int					ft_strcmp(const char *s1, const char *s2);
 
 #endif
