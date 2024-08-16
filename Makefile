@@ -6,13 +6,15 @@
 #    By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/26 18:53:05 by tviejo            #+#    #+#              #
-#    Updated: 2024/06/19 21:24:34 by tviejo           ###   ########.fr        #
+#    Updated: 2024/08/16 17:43:16 by tviejo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
 SRC_DIR		=	./srcs/
+
+OBJ_DIR     =   ./objs/
     
 SRC		= ft_strlen.c   ft_toupper.c    ft_tolower.c   ft_strrchr.c    ft_strnstr.c   ft_strncmp.c \
 		  ft_strlcpy.c  ft_strlcat.c    ft_strchr.c    ft_memset.c     ft_memmove.c   ft_memcpy.c  \
@@ -25,7 +27,9 @@ SRC		= ft_strlen.c   ft_toupper.c    ft_tolower.c   ft_strrchr.c    ft_strnstr.c
 		  ft_lstadd_back_bonus.c ft_lstdelone_bonus.c  ft_lstclear_bonus.c  ft_lstiter_bonus.c     \
 		  ft_lstmap_bonus.c		ft_atol.c
 
-OBJS		=	${SRC:.c=.o}
+vpath %.c $(SRC_DIR)
+
+OBJS		=	$(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 
 CC		=	cc
 
@@ -36,15 +40,18 @@ AR		=	ar rcs
 RM		=	rm -f
 
 .c.o:
+			mkdir -p $(OBJ_DIR) 
 			$(CC) -c $(CFLAGS) $< -o $@ $(INCLUDES)
 
 ${NAME}:		${OBJS}
+				
 				${AR} ${NAME} ${OBJS}
 
 all:			${NAME}
 
 clean:
-			${RM} ${OBJS} ${BOBJS}
+			$(RM) -r $(OBJ_DIR)
+			${RM} ${OBJS}
 
 fclean:			clean
 				${RM} ${NAME} ${BNAME}
@@ -52,4 +59,3 @@ fclean:			clean
 re:				fclean all
 
 .PHONY:			bonus all clean fclean re
-.SILENT:
