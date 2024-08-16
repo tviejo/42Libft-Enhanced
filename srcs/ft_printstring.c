@@ -6,11 +6,11 @@
 /*   By: tviejo <tviejo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:37:35 by tviejo            #+#    #+#             */
-/*   Updated: 2024/08/16 17:39:11 by tviejo           ###   ########.fr       */
+/*   Updated: 2024/08/09 16:32:39 by tviejo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	ft_putchar_fd_2(int c, int fd)
 {
@@ -22,7 +22,7 @@ int	ft_putstr_fd_2(char *str, int fd)
 {
 	if (str == NULL)
 		return (ft_putstr_fd_2("(null)", fd));
-	write(1, &str[0], ft_strlen(str));
+	write(fd, &str[0], ft_strlen(str));
 	return (ft_strlen(str));
 }
 
